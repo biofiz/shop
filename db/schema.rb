@@ -13,11 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20160626183949) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "positions", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",        null: false
     t.string   "description"
-    t.string   "state"
-    t.float    "price"
+    t.string   "state",       null: false
+    t.float    "price",       null: false
+    t.integer  "count",       null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
